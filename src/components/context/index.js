@@ -1,3 +1,3 @@
-import { BookstoreProvider, Consumer } from './Context';
+import { BookstoreProvider, Consumer } from './context';
 
 export { BookstoreProvider, Consumer };
