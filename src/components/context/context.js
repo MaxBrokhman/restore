@@ -1,5 +1,5 @@
 import React from 'react';
 
-const { Provider, Consumer } = React.createContext();
+const { BookstoreProvider, Consumer } = React.createContext();
 
-export { Provider, Consumer };
+export { BookstoreProvider, Consumer };
