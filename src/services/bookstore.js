@@ -1,7 +1,7 @@
 export default class Bookstore{
 
-    getBooks(){
-        return [
+    constructor(){
+        this.data = [
             {
                 id: 1,
                 title: 'Production-Ready Microservices',
@@ -17,5 +17,14 @@ export default class Bookstore{
                 cover: 'https://images-na.ssl-images-amazon.com/images/I/414CRjLjwgL._SX403_BO1,204,203,200_.jpg'
             }
         ];
+    }
+
+    //Имитируется задержка получения данных с сервера
+    getBooks(){
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(this.data);
+            }, 700);
+        });
     }
 };
