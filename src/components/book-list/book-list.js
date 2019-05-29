@@ -50,12 +50,6 @@ const mapStateToProps = (state) => {
     }
 };
 
-//В props компонента передаются action creators уже обернутые в dispatch
-/*const mapDispatchToProps = {
-    booksLoaded,
-    booksRequested,
-    booksError
-};*/
 const mapDispatchToProps = (dispatch, ownProps) => {
 
     const { bookstore } = ownProps;

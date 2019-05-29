@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bookAddedToCart, bookDeletedFromCart, bookCountDecreased } from '../../actions';
 
 import './shopping-cart-table.css';
 
@@ -37,7 +38,13 @@ const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete }) =
                                             <i className="fa fa-plus-circle" />
                                         </button>
                                         <button className="btn btn-outline-warning btn-sm float-right"
-                                                onClick={ () => { onDecrease(id) } }>
+                                                onClick={ () => {
+                                                            if(count === 1){
+                                                                onDelete(id);
+                                                                return;
+                                                            }
+                                                            onDecrease(id) 
+                                                        } }>
                                             <i className="fa fa-minus-circle" />
                                         </button>
                                     </td>
@@ -61,11 +68,11 @@ const mapStateToProps = ({ cartItems, orderTotal }) => {
     };
 };
 
-const mapDispatchToProps = () => {
-    return{
-        onDecrease: () => {},
-        onIncrease: () => {},
-        onDelete: () => {}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onDecrease: (id) => dispatch(bookCountDecreased(id)),
+        onIncrease: (id) => dispatch(bookAddedToCart(id)),
+        onDelete: (id) => dispatch(bookDeletedFromCart(id))
     }
 };
 

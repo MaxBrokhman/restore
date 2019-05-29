@@ -25,6 +25,20 @@ const bookAddedToCart = (id) => {
     }
 };
 
+const bookDeletedFromCart = (id) => {
+    return {
+        type: 'BOOK_DELETED_FROM_CART',
+        payload: id
+    }
+};
+
+const bookCountDecreased = (id) => {
+    return {
+        type: 'BOOK_CART_COUNT_DECREASED',
+        payload: id
+    };
+};
+
 const fetchBooks = (bookstore, dispatch) => () => {
     //На время загрузки данных loading в state изменяется на true
     dispatch(booksRequested());
@@ -34,4 +48,4 @@ const fetchBooks = (bookstore, dispatch) => () => {
     .catch(error => dispatch(booksError(error)));
 }
 
-export { fetchBooks, bookAddedToCart };
+export { fetchBooks, bookAddedToCart, bookDeletedFromCart, bookCountDecreased };
