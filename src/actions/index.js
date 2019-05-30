@@ -32,6 +32,8 @@ const bookDeletedFromCart = (id) => {
     }
 };
 
+
+//Уменьшение количества конкретной книги в корзине
 const bookCountDecreased = (id) => {
     return {
         type: 'BOOK_CART_COUNT_DECREASED',

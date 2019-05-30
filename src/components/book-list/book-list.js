@@ -21,6 +21,7 @@ const BookList = ({ books, onAddedToCart }) => {
     );
 };
 
+//Компонент-обертка, отвечающая за получение данных из state
 class BookListContainer extends React.Component{
     
     componentDidMount(){
@@ -51,9 +52,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-
     const { bookstore } = ownProps;
-
     return {
         fetchBooks: fetchBooks(bookstore, dispatch),
         onAddedToCart: (id) => dispatch(bookAddedToCart(id))

@@ -1,19 +1,18 @@
 import React from 'react';
-import withService from '../hoc';
 import { HomePage, CartPage } from '../pages';
 import { Route, Switch } from 'react-router-dom';
 import ShopHeader from '../shop-header';
 
-const App = ({ bookstore }) => {
+const App = () => {
     return(
         <main role="main" className="container">
-            <ShopHeader itemsNumber={5} total={210} />
+            <ShopHeader />
             <Switch>
-                <Route path="/" component={ HomePage } exact />
-                <Route path="/cart" component={ CartPage }  />
+                <Route path="/restore/" component={ HomePage } exact />
+                <Route path="/restore/cart/" component={ CartPage }  />
             </Switch>
         </main>
     );
 };
 
-export default withService()(App);
+export default App;
